@@ -30,8 +30,8 @@ public class OrderRepository {
     }
 
     public void addOrderPartnerPair(String orderId, String partnerId) {
-        Order order = orderHashMap.getOrDefault(orderId,null);
-        DeliveryPartner deliveryPartner = deliveryPartnerHashMap.getOrDefault(partnerId,null);
+        Order order = orderHashMap.get(orderId);
+        DeliveryPartner deliveryPartner = deliveryPartnerHashMap.get(partnerId);
 
         if (order == null || deliveryPartner == null) return;
 
@@ -40,11 +40,11 @@ public class OrderRepository {
     }
 
     public Order getOrderById(String orderId) {
-       return orderHashMap.getOrDefault(orderId,null);
+       return orderHashMap.get(orderId);
     }
 
     public DeliveryPartner getPartnerById(String partnerId) {
-        return deliveryPartnerHashMap.getOrDefault(partnerId,null);
+        return deliveryPartnerHashMap.get(partnerId);
     }
 
     public Integer getOrderCountByPartnerId(String partnerId) {
